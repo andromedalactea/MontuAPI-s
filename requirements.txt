@@ -1,0 +1,4 @@
+Montu
+serverless-wsgi
+flask_cors
+Flask
