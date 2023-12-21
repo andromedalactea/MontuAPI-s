@@ -46,3 +46,4 @@ def convert_date_calendar(year, month, day, hour, min, sec, calendar):
     mtime = montu.Time(date, format='iso', scale='utc', calendar=calendar)
     return mtime
 
+#print(convert_date_calendar(2002,7,26,9,32,0,'caniucular'))

@@ -1,15 +1,10 @@
+import functions_framework
 from scripts.time_api import convert_date_calendar, montu_time_to_dict
-from flask import Flask, request, jsonify
-from flask_cors import CORS
 
-# Crear la instancia de la aplicación Flask
-app = Flask(_name_)
-
-# Configurar CORS para permitir todas las fuentes
-CORS(app, resources={r"/*": {"origins": "*"}})
-
-@app.route('/convert_date', methods=['GET'])
-def api_convert_date():
+@functions_framework.http
+def api_convert_date(request):
+    """HTTP Cloud Function para convertir fechas."""
+    # Extraer parámetros de la solicitud
     year = request.args.get('year')
     month = request.args.get('month')
     day = request.args.get('day')
@@ -18,9 +13,9 @@ def api_convert_date():
     sec = request.args.get('sec')
     calendar = request.args.get('calendar')
 
+    # Lógica de la función
     mtime = convert_date_calendar(year, month, day, hour, min, sec, calendar)
     result_dict = montu_time_to_dict(mtime)
-    return jsonify(result_dict)
 
-if _name_ == '_main_':
-    app.run(debug=True, host='0.0.0.0', port=8080)
+    # Crear y devolver la respuesta JSON
+    return result_dict  # Flask jsonify no es necesario; Google Cloud Functions maneja la conversión a JSON

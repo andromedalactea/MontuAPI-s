@@ -1,4 +1,2 @@
-Montu
-serverless-wsgi
-flask_cors
-Flask
+montu
+functions-framework
