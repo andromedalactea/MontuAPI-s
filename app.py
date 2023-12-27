@@ -18,7 +18,7 @@ def api_convert_date():
 
     # Validar que todos los parámetros están presentes
     if not all([year, month, day, hour, min, sec, calendar]):
-        return jsonify({"error": "Todos los parámetros son necesarios"}), 400
+        return jsonify({"error": "All parameters are necesary"}), 400
 
     # Lógica de la función
     try:
